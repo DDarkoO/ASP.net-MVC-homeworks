@@ -1,0 +1,25 @@
+﻿@model Order
+
+<h5>Selected order details:</h5>
+<ol>
+    <li><b>Order ID:</b> @Model.Id</li>
+    <li>
+        <b>Ordered pizza(s):</b>
+        <ul>
+            @foreach (Pizza pizza in @Model.OrderedPizzas)
+            {
+                <li>@pizza.Name</li>
+            }
+        </ul>
+    </li>
+    <li>
+        <b>Total price:</b>
+        @{int cost = 0;
+                @for (int i = 0; i < Model.OrderedPizzas.Count; i++)
+            {
+                cost = cost + Model.OrderedPizzas[i].Price;
+            }
+        }
+        @cost denars
+    </li>
+</ol>
