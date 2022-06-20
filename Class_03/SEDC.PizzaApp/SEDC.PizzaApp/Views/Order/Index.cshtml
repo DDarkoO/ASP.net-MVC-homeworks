@@ -1,0 +1,42 @@
+﻿@using SEDC.PizzaApp.Models.ViewModels
+@*@using SEDC.PizzaApp.Models.Domain
+@model List<Order>
+
+<h2>Made orders:</h2>
+
+<ol>
+    @for(int i = 0; i<@Model.Count; i++)
+    {
+        <li>@Model.ElementAt(i).Id - @Model.ElementAt(i).Pizza.Name - User: @Model.ElementAt(i).User.FirstName</li>
+    }
+</ol>*@
+
+@model List<OrderDetailsViewModel>
+
+@*<ol>
+    @for (int i = 0; i < @Model.Count; i++)
+    {
+        <li>@Model.ElementAt(i).PizzaName - @Model.ElementAt(i).UserFullName - @Model.ElementAt(i).Price. Delivery address: "@Model.ElementAt(i).UserAddress"</li>
+    }
+</ol>*@
+@{
+    int counter = 1;
+
+    @foreach (OrderDetailsViewModel item in Model)
+    {
+        <ul>
+            <p style="font-size: 20px"><b><u>Order @counter</u></b></p>
+            <li>
+                <b>A @item.PizzaSize-sized @item.PizzaName</b>
+                @if (@item.HasExtras)
+                {
+                    <span>with extras</span>
+                }
+            </li>
+            <li><b>Customer name</b>: @item.UserFullName</li>
+            <li><b>Total price</b>: @String.Format("{0:0.00}", @item.Price) denars</li>
+            <li><b>Delivery address</b>: @item.UserAddress</li>
+        </ul>
+        counter++;
+    }
+}
