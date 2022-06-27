@@ -1,0 +1,49 @@
+﻿@model PizzaViewModel
+
+@*The content of _PizzaGreeting.cshtml will be replaced here*@
+<partial name="~/Views/Shared/Partials/_PizzaGreeting.cshtml" />
+
+@*<h2>Details for @Model.Name</h2>
+<p>Price: @Model.Price</p>*@
+
+<partial name="~/Views/Shared/Partials/_PizzaDetailsPartial.cshtml" for="@Model"/>
+
+
+@*1) - Classic C# *@
+
+@{
+    if (Model.IsOnPromotion)
+    {
+        <h4>This pizza is on promotion!</h4>
+    }
+    else
+    {
+        <h4>This pizza is not on promotion!</h4>
+    }
+}
+
+
+@*2) - ViewData *@
+@{
+    if ((bool)ViewData["Promotion"])
+    {
+        <h3>This pizza is on promotion!</h3>
+    }
+    else
+    {
+        <h3>This pizza is not on promotion!</h3>
+    }
+}
+
+
+@*3) - ViewBag *@
+@{
+    if (ViewBag.IsOnPromotion)
+    {
+        <h2>This pizza is on promotion!</h2>
+    }
+    else
+    {
+        <h2>This pizza is not on promotion!</h2>
+    }
+}

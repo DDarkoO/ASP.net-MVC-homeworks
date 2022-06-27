@@ -13,10 +13,10 @@ namespace SEDC.PizzaApp.Models.Domain
         public bool HasExtras { get; set; }
         public PizzaSize PizzaSize { get; set; }
 
-        public static PizzaViewModel PizzaToPizzaViewModel(Pizza pizza)
-        {
-            PizzaViewModel pizzaViewModel = PizzaMapper.ToPizzaViewModel(pizza);
-            return pizzaViewModel;
-        }
+        //public static PizzaViewModel PizzaToPizzaViewModel(Pizza pizza)
+        //{
+        //    PizzaViewModel pizzaViewModel = PizzaMapper.ToPizzaViewModel(pizza);
+        //    return pizzaViewModel;
+        //}
     }
 }

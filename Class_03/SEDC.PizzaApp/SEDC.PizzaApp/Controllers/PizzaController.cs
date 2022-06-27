@@ -11,13 +11,15 @@ namespace SEDC.PizzaApp.Controllers
         {
             List<Pizza> dbPizzas = StaticDb.Pizzas;
 
-            List<PizzaViewModel> pizzaViewModels = new();
-            
-            foreach (Pizza pizza in dbPizzas)
-            {
-                PizzaViewModel pizzaViewModel = PizzaMapper.ToPizzaViewModel(pizza);
-                pizzaViewModels.Add(pizzaViewModel);
-            }
+            List<PizzaViewModel> pizzaViewModels = StaticDb.Pizzas.Select(x => x.ToPizzaViewModel()).ToList();
+
+            //List<PizzaViewModel> pizzaViewModels = new();
+
+            //foreach (Pizza pizza in dbPizzas)
+            //{
+            //    PizzaViewModel pizzaViewModel = PizzaMapper.ToPizzaViewModel(pizza);
+            //    pizzaViewModels.Add(pizzaViewModel);
+            //}
 
             return View(pizzaViewModels);
         }
@@ -57,7 +59,7 @@ namespace SEDC.PizzaApp.Controllers
         {
             Pizza pizza = StaticDb.Pizzas[0];
 
-            PizzaViewModel testPizza = Pizza.PizzaToPizzaViewModel(pizza);
+            PizzaViewModel testPizza = pizza.ToPizzaViewModel();
 
             return View(testPizza);
         }

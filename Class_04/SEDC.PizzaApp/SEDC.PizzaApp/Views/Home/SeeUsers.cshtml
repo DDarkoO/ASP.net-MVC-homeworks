@@ -1,0 +1,13 @@
+﻿@model List<UserViewModel>
+
+    
+@{
+    <h4>@ViewData["listOfUsers"]</h4>
+    <hr />
+    <ol>
+        @foreach (UserViewModel user in Model)
+        {
+            <li>@user.FullName</li>
+        }
+    </ol>
+}

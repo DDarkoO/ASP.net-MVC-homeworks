@@ -1,0 +1,8 @@
+﻿@model PizzaViewModel
+@{
+    string extras = @Model.HasExtras ? "Yes!" : "Not today!";
+    string promo = @Model.IsOnPromotion ? "Yes!" : "Nope, maybe tomorrow?";
+}
+<p>Hi. I am the pizza @Model.Name. I cost @Model.Price </p>
+<p>Do I have extras? @extras </p>
+<p>Am I on promotion?? @promo </p>
