@@ -1,0 +1,18 @@
+﻿@using BurgerApp.Models.ViewModels
+@model List<OrderDetailsViewModel>
+
+<a asp-controller="Order" asp-action="CreateOrder">Create new order</a>
+<hr />
+<h4>@ViewData["Header"]</h4>
+
+<div class="row">
+    @foreach (var order in @Model)
+    {
+        <div class="bg-dark text-white" style="max-width: 18rem; margin-left:10px; margin-bottom: 10px; padding:10px; border-radius: 10px">
+            <partial name="~/Views/Shared/Partials/_OrderDetailsPartial.cshtml" for="@order" />
+            <br />
+            <a asp-controller="Order" asp-action="EditOrder" asp-route-id="@order.Id">Edit</a>
+            <a asp-controller="Order" asp-action="DeleteOrder" asp-route-id="@order.Id">Delete</a>
+        </div>
+    }
+</div>

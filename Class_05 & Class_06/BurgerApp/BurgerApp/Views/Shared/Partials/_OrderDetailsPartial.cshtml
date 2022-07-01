@@ -1,0 +1,19 @@
+﻿@using BurgerApp.Models.ViewModels
+
+
+@model OrderDetailsViewModel
+
+<hr />
+@Model.Id.
+
+    <div class="card-body">
+        <b>Customer name</b>: @Model.FullName
+        <br />
+        <b><label asp-for="BurgerName"></label></b>: @Html.DisplayFor(x => x.BurgerName)
+        <br />
+        <b>Delivery address</b>: @Model.Location
+        <br />
+        <b>Price</b>: @Model.Price MKD.   *the customer will pay in @Model.PaymentMethod
+    </div>
+
+
