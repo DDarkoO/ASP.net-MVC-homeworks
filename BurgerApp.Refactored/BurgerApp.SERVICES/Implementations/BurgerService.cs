@@ -35,6 +35,7 @@ namespace BurgerApp.SERVICES.Implementations
             burger.IsVegan = burgerViewModel.IsVegan;
             burger.HasFries = burgerViewModel.HasFries;
             burger.Price = burgerViewModel.Price;
+            
 
             _burgerRepository.Edit(burger);
         }

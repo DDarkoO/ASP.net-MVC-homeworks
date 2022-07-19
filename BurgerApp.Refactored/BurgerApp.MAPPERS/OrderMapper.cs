@@ -12,6 +12,12 @@ namespace BurgerApp.MAPPERS
     {
         public static OrderViewModel ToOrderViewModel(this Order order)
         {
+            double price = 0;
+            foreach(var burgerOrder in order.BurgerOrders)
+            {
+                price += burgerOrder.Price;
+            }
+
             return new OrderViewModel
             {
                 Id = order.Id,
@@ -19,7 +25,9 @@ namespace BurgerApp.MAPPERS
                 Address = order.Address,
                 Location = order.Location,
                 IsDelivered = order.IsDelivered,
-                Burger = order.Burger
+                Price = order.BurgerOrders.Sum(x => x.Price),
+                BurgerOrders = order.BurgerOrders,
+                BurgerId = order.BurgerId
             };
         }
 
@@ -30,7 +38,8 @@ namespace BurgerApp.MAPPERS
                 FullName = orderViewModel.FullName,
                 Address = orderViewModel.Address,
                 Location = orderViewModel.Location,
-                Burger = orderViewModel.Burger                
+                BurgerOrders = new List<BurgerOrder>(),
+                Id = orderViewModel.Id
             };
         }
     }

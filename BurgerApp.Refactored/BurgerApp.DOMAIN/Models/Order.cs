@@ -12,7 +12,9 @@ namespace BurgerApp.DOMAIN.Models
         public string FullName { get; set; }
         public string Address { get; set; }
         public bool IsDelivered { get; set; }
-        public Burger Burger { get; set; }
+        //public Burger Burger { get; set; }
         public string Location { get; set; }
+        public List<BurgerOrder> BurgerOrders { get; set; }
+        public int BurgerId { get; set; }
     }
 }

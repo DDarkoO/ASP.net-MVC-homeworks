@@ -17,8 +17,8 @@
                 <input asp-for="Location" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Burger.Id" class="control-label">Select burger from the menu</label>
-                <select class="form-control" asp-for="Burger.Id" asp-items="@(new SelectList(ViewBag.ListOfBurgers, "Id", "Name"))"></select>
+                <label asp-for="BurgerId" class="control-label">Select burger from the menu</label>
+                <select class="form-control" asp-for="BurgerId" asp-items="@(new SelectList(ViewBag.ListOfBurgers, "Id", "Name"))"></select>
             </div>
             <button type="submit" class="btn btn-default">Add</button>
         </form>

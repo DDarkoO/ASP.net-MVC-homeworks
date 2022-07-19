@@ -63,16 +63,14 @@ namespace BurgerApp.SERVICES.Implementations
             {
                 throw new Exception("The order was not found");
             }
-
-            Burger burger = _burgerRepository.GetById(orderViewModel.Burger.Id);
-
+                        
             Order orderToEdit = _orderRepository.GetById(orderViewModel.Id);
 
             orderToEdit.IsDelivered = orderViewModel.IsDelivered;
             orderToEdit.Address = orderViewModel.Address;
             orderToEdit.Location = orderViewModel.Location;
             orderToEdit.Id = orderViewModel.Id;
-            orderToEdit.Burger = burger;
+            orderToEdit.BurgerOrders = orderViewModel.BurgerOrders;
 
             _orderRepository.Edit(orderToEdit);
         }
@@ -102,14 +100,19 @@ namespace BurgerApp.SERVICES.Implementations
 
         OrderViewModel IOrderService.ImportBurgerToOrderViewModel(OrderViewModel orderViewModel)
         {
-            Burger burger = _burgerRepository.GetById(orderViewModel.Burger.Id);
-            OrderViewModel updatedOrderViewModel = new ()
+            OrderViewModel updatedOrderViewModel = new()
             {
                 FullName = orderViewModel.FullName,
                 Address = orderViewModel.Address,
                 Location = orderViewModel.Location,
-                Burger = burger                
+                BurgerOrders = orderViewModel.BurgerOrders
             };
+
+            //foreach (var burgerOrder in orderViewModel.BurgerOrders)
+            //{
+            //    Burger burger = _burgerRepository.GetById(burgerOrder.Burger.Id);
+            //    updatedOrderViewModel.BurgerOrders.Add(burger);
+            //}
 
             return updatedOrderViewModel;
         }
