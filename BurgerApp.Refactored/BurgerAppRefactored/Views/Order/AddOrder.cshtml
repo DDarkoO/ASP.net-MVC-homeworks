@@ -1,0 +1,26 @@
+﻿@using BurgerApp.VIEWMODELS.OrderViewModels
+@model OrderViewModel
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddOrderPost" method="post">
+            <div class="form-group">
+                <label asp-for="FullName" class="control-label">Name and surname</label>
+                <input asp-for="FullName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label">Address</label>
+                <input asp-for="Address" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Location" class="control-label">Location</label>
+                <input asp-for="Location" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Burger.Id" class="control-label">Select burger from the menu</label>
+                <select class="form-control" asp-for="Burger.Id" asp-items="@(new SelectList(ViewBag.ListOfBurgers, "Id", "Name"))"></select>
+            </div>
+            <button type="submit" class="btn btn-default">Add</button>
+        </form>
+    </div>
+</div>

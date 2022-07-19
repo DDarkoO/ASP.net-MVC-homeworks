@@ -1,0 +1,28 @@
+﻿@using BurgerApp.VIEWMODELS.OrderViewModels
+
+
+@model List<OrderViewModel>
+
+<a asp-controller="Order" asp-action="AddOrder">Add new order</a>
+<hr />
+@*<h4>@ViewData["Header"]</h4>*@
+
+<div class="row">
+    @foreach (var order in @Model)
+    {
+        <div class="bg-dark text-white" style="max-width: 18rem; margin-left:10px; margin-bottom: 10px; padding:10px; border-radius: 10px">
+            <div class="card-body">
+                <b>Customer name</b>: @order.FullName
+                <br />
+                <b><label asp-for="@order.Burger.Name"></label></b>: @order.Burger.Name
+                <br />
+                <b>Delivery address</b>: @order.Location
+                <br />
+                <b>Price</b>: @order.Burger.Price MKD.
+            </div>
+            <br />
+            <a asp-controller="Order" asp-action="EditOrder" asp-route-id="@order.Id">Edit</a>
+            <a asp-controller="Order" asp-action="DeleteOrder" asp-route-id="@order.Id">Delete</a>
+        </div>
+    }
+</div>

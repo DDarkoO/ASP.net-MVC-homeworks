@@ -1,0 +1,16 @@
+﻿@using BurgerApp.VIEWMODELS.OrderViewModels
+
+@model OrderViewModel
+
+<h2>Are you sure that you want to delete the following order:</h2>
+
+    <div class="card-body">
+        <h5 class="card-title">User: @Model.FullName</h5>
+        <p class="card-text">@Model.Burger.Price MKD <strong></strong></p>
+    </div>
+
+    <div class="row">
+        <div>Burger: @Model.Burger.Name</div>        
+    </div>
+
+    <a asp-controller="Order" asp-action="ConfirmDelete" asp-route-id="@Model.Id">Confirm</a>
