@@ -1,0 +1,14 @@
+﻿@using BurgerApp.VIEWMODELS.HomeViewModels
+@model HomeViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div style="display:flex; flex-direction: column; align-items:center; justify-content:center">
+    <h1> WELCOME TO BURGERLAND !!!</h1>
+    <img src="@Url.Content("https://cdn-t-3.bvkstatic.com/us/static/images/games/happy-burger.png")" width="300" height="300" style="border-radius: 10px" alt="Image" />
+    <hr />
+    <h5>The burger of all burgers: <strong>@Model.MostPopularBurger</strong></h5>
+    <h5>We have successfully completed <strong>@Model.OrdersDone</strong> orders so far, with average price of <u>@Model.AverageOrderPrice</u> MKD per order!</h5>
+</div>
